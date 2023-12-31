@@ -1,0 +1,59 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #121419;
+  color: #fff;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.coin-list {
+  width: 30%;
+  min-width: 300px;
+  overflow-x: auto;
+}
+
+.coin-header {
+  font-size: 14px;
+}
+
+.coin-heading {
+  flex: 1;
+  text-align: center;
+}
+
+.coin-item {
+  align-items: center;
+  border-bottom: 0.5px solid #ccc;
+  padding: 3px;
+}
+
+.coin-item p {
+  flex: 1;
+  text-align: center;
+  font-size: 11px;
+}
+
+.symbol {
+  font-size: 12px;
+  color: #666666
+}
+
+.red {
+  color: #ea3943
+}
+
+.green {
+  color: #16c784
+}
+
+.icon-coin {
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+  margin-right: 5px;
+}
+
+.coin-name {
+  display: flex;
+  align-items: center;
+}
