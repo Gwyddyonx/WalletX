@@ -24,38 +24,42 @@ export const ListAllCoins = () => {
 
 
     return (
-        <table className="coin-list">
-            <thead className="coin-header">
-                <tr>
-                    <th className="coin-heading">Name</th>
-                    <th className="coin-heading">Price</th>
-                    <th className="coin-heading">24h %</th>
-                    <th className="coin-heading">30d %</th>
-                </tr>
-            </thead>
-            <tbody>
-                {coins.length ? (
-                    coins.map((coin, index) => (
-                        <tr className="coin-item" key={index}>
-                            <td>
-                                <div className='coin-name'>
-                                    <img src={getIcon(coin.id)} className='icon-coin'></img><span>{coin.name}&nbsp;</span><span className='symbol'> {coin.symbol}</span>
-                                </div>
-                            </td>
-                            <td>${Math.trunc(coin.quote.USD.price, 2)}</td>
-                            <td className={Math.round(coin.quote.USD.percent_change_24h, 2).toString().indexOf('-') >= 0 ? 'red' : 'green'}>
-                                {Math.round(coin.quote.USD.percent_change_24h, 2).toString()}%
-                            </td>
-                            <td className={Math.round(coin.quote.USD.percent_change_30d, 2).toString().indexOf('-') >= 0 ? 'red' : 'green'}>
-                                {Math.round(coin.quote.USD.percent_change_30d, 2).toString()}%
-                            </td>
-                        </tr>
-                    ))
-                ) : (
-                    <p>Cargando...</p>
-                )}
-            </tbody>
-        </table>
+        <div className="card-list">
+            <table className="coin-list">
+                <thead className="coin-header">
+                    <tr>
+                        <th className="coin-heading">Name</th>
+                        <th className="coin-heading">Price</th>
+                        <th className="coin-heading">30d %</th>
+                        <th className="coin-heading"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {coins.length ? (
+                        coins.map((coin, index) => (
+                            <tr className="coin-item" key={index}>
+                                <td>
+                                    <div className='coin-name'>
+                                        <img src={getIcon(coin.id)} className='icon-coin'></img><span>{coin.name}&nbsp;</span><span className='symbol'> {coin.symbol}</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p className='col-list-left'>${Math.trunc(coin.quote.USD.price, 2)}</p>
+                                </td>
+                                <td className={Math.round(coin.quote.USD.percent_change_24h, 2).toString().indexOf('-') >= 0 ? 'red' : 'green'}>
+                                    <p>{Math.round(coin.quote.USD.percent_change_24h, 2).toString()}%</p>
+                                </td>
+                                <td>
+                                    <button className='button-add'>Add</button>
+                                </td>
+                            </tr>
+                        ))
+                    ) : (
+                        <p>Cargando...</p>
+                    )}
+                </tbody>
+            </table>
+        </div>
 
     )
 }
